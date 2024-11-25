@@ -1,5 +1,7 @@
 # Role-Based Access Control (RBAC) UI
 
+### deployment live link ``` https://rbac-cwq6leqj7-diyoraps-projects.vercel.app/```
+
 A React-based UI for managing users, roles, and permissions with Redux Toolkit for state management.
 
 ## Features
@@ -34,5 +36,5 @@ A React-based UI for managing users, roles, and permissions with Redux Toolkit f
 
 1. Clone the repository:
    ```bash
-https://github.com/DIYORAP/RBAC-UI-.git
+https://github.com/DIYORAP/RBAC-UI.git
 cd rbac-ui
