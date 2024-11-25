@@ -10,9 +10,9 @@ const UserManagement: React.FC = () => {
 
     const handleSubmit = () => {
         if (form.id) {
-            // dispatch(form);
+            dispatch(form);
         } else {
-            //  dispatch(addUser({ ...form, id: Date.now().toString() }));
+            dispatch(addUser({ ...form, id: Date.now().toString() }));
         }
         setForm({ id: '', name: '', email: '', role: '', status: 'Active' });
     };
