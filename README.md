@@ -34,5 +34,5 @@ A React-based UI for managing users, roles, and permissions with Redux Toolkit f
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/DIYORAP/rbac-ui.git
-   cd rbac-ui
+https://github.com/DIYORAP/RBAC-UI-.git
+cd rbac-ui
