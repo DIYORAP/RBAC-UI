@@ -3,16 +3,30 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../redux/store';
 import { addUser, deleteUser, editUser } from '../redux/userSlice';
 
+interface User {
+    id: string;
+    name: string;
+    email: string;
+    role: string;
+    status: 'Active' | 'Inactive';
+}
+
 const UserManagement: React.FC = () => {
-    const users = useSelector((state: RootState) => state.users.users);
+    const users = useSelector((state: RootState) => state.users.users as User[]);
     const dispatch = useDispatch();
-    const [form, setForm] = useState({ id: '', name: '', email: '', role: '', status: 'Active' });
+    const [form, setForm] = useState<Partial<User>>({
+        id: '',
+        name: '',
+        email: '',
+        role: '',
+        status: 'Active',
+    });
 
     const handleSubmit = () => {
         if (form.id) {
-            dispatch(form);
+            dispatch(editUser(form as User));
         } else {
-            dispatch(addUser({ ...form, id: Date.now().toString() }));
+            dispatch(addUser({ ...form, id: Date.now().toString() } as User));
         }
         setForm({ id: '', name: '', email: '', role: '', status: 'Active' });
     };
@@ -24,24 +38,34 @@ const UserManagement: React.FC = () => {
                 <input
                     type="text"
                     placeholder="Name"
-                    value={form.name}
+                    value={form.name || ''}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     className="border p-2 mr-2"
                 />
                 <input
                     type="email"
                     placeholder="Email"
-                    value={form.email}
+                    value={form.email || ''}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     className="border p-2 mr-2"
                 />
                 <input
                     type="text"
                     placeholder="Role"
-                    value={form.role}
+                    value={form.role || ''}
                     onChange={(e) => setForm({ ...form, role: e.target.value })}
                     className="border p-2 mr-2"
                 />
+                <select
+                    value={form.status || 'Active'}
+                    onChange={(e) =>
+                        setForm({ ...form, status: e.target.value as 'Active' | 'Inactive' })
+                    }
+                    className="border p-2 mr-2"
+                >
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
                 <button onClick={handleSubmit} className="bg-blue-500 text-white px-4 py-2">
                     {form.id ? 'Edit User' : 'Add User'}
                 </button>
