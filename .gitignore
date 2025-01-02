@@ -7,6 +7,9 @@
 
 # testing
 /coverage
+.npm
+.vpnpn 
+.dependencies
 
 # production
 /build
