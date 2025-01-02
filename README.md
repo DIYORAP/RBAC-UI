@@ -32,10 +32,4 @@ A React-based UI for managing users, roles, and permissions with Redux Toolkit f
 
 - Node.js (v14 or above)
 - npm or yarn package manager
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-https://github.com/DIYORAP/RBAC-UI.git
-cd rbac-ui
+  that not copy
